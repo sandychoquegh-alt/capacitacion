@@ -24,33 +24,19 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        View::share(
-            'secciones',
-            SeccionInicio::orderBy('id')->get()
-        );
-
-        View::share(
-            'infors',
-            Info::all()
-        );
-
-        View::share(
-            'sobreNosotros',
-            SobreNosotros::orderBy('id')->get()
-        );
-        View::share(
-    'seccionesEmpresariales',
-    SeccionEmpresarial::all()
-);
-     
-
-View::share(
-    'seccionesEmpresas',
-    SeccionEmpresa::with('imagenes')->orderBy('id')->get()
-);
+   public function boot(): void
+{
+    try {
+        if (Schema::hasTable('info')) {
+            View::share('infors', Info::all());
+            View::share('sobreNosotros', SobreNosotros::orderBy('id')->get());
+            View::share('seccionesEmpresariales', SeccionEmpresarial::all());
+            View::share('seccionesEmpresas', SeccionEmpresa::with('imagenes')->orderBy('id')->get());
+        }
+    } catch (\Exception $e) {
+        // Ignora el error de conexión durante la ejecución de comandos en consola
     }
+}
 }
 
 
