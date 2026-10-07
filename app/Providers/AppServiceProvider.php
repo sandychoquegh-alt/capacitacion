@@ -27,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
    public function boot(): void
 {
     try {
+        if (Schema::hasTable('seccion_inicios')) {
+            View::share('secciones', SeccionInicio::orderBy('id')->get());
+        }
+
         if (Schema::hasTable('info')) {
             View::share('infors', Info::all());
             View::share('sobreNosotros', SobreNosotros::orderBy('id')->get());
@@ -34,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
             View::share('seccionesEmpresas', SeccionEmpresa::with('imagenes')->orderBy('id')->get());
         }
     } catch (\Exception $e) {
-        // Ignora el error de conexión durante la ejecución de comandos en consola
+        // Ignora errores de conexión si ocurren comandos en consola
     }
 }
 }
