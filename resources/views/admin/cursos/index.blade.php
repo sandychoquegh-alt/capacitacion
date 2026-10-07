@@ -5,7 +5,7 @@
 
 <div class="mb-3">
 <button class="btn btn-primary" onclick="abrirModalCurso()">
-    Nuevo Curso
+    + Nuevo Curso
 </button>
 </div>
 
@@ -51,10 +51,11 @@
                    <i class="bi bi-pencil-square"></i>   
                     Editar
                 </button>
-                <a href="{{ route('admin.modulos.index', $curso->id) }}" 
-   class="btn btn-primary btn-sm">
-   📚 Módulos
-</a>
+               <a href="{{ route('admin.modulos.index', $curso->id) }}" 
+                class="btn btn-primary btn-sm">
+                    <i class="bi bi-journal-bookmark-fill"></i>
+                    Crear Módulos
+                </a>
                 <form action="{{ route('admin.cursos.destroy', $curso->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')

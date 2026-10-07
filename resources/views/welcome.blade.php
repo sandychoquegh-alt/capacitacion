@@ -93,7 +93,7 @@
 
     <!-- BOTÓN WHATSAPP -->
 
-    <a href="https://wa.me/59167467726" target="_blank" class="whatsapp-float-text">
+    <a href="https://wa.me/59165351816" target="_blank" class="whatsapp-float-text">
         <i class="fab fa-whatsapp"></i>
     </a>
 

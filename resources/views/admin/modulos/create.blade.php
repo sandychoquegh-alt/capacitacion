@@ -1,7 +1,7 @@
 <div id="modalCrear" class="modal-custom">
     <div class="modal-box">
 
-        <h3>📚 Nuevo Módulo</h3>
+        <h3> Nuevo Módulo</h3>
 
         <form method="POST" action="{{ route('admin.modulos.store') }}">
             @csrf

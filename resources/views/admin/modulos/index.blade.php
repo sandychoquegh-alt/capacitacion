@@ -6,7 +6,10 @@
 
 <div class="container">
 
-<h2 class="mb-4">📚 Módulos del Curso: {{ $curso->titulo }}</h2>
+<h2 class="mb-4">
+    <i class="bi bi-journal-bookmark-fill me-2" style="color: #b28a1e;"></i>
+    Módulos del Curso: {{ $curso->titulo }}
+</h2>
 
 <button class="btn btn-success"
     onclick="abrirModalCrear({{ $curso->id }})">
@@ -17,7 +20,7 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>#</th>
+           
             <th>Módulo</th>
             <th>Acciones</th>
         </tr>
@@ -26,7 +29,7 @@
     <tbody>
         @forelse($curso->modulos as $modulo)
             <tr>
-                <td>{{ $modulo->orden }}</td>
+                
 
                 <td>
                     <strong>{{ $modulo->titulo }}</strong>
@@ -34,27 +37,38 @@
 
                 <td>
                     <div class="d-flex gap-2">
-                        
-
+                                                
                         {{-- EDITAR --}}
-          
-                        <button class="btn btn-warning btn-sm"
-    onclick="abrirModalEditar({{ $modulo->id }})">
-    ✏️
-</button>
+                        <button
+                            type="button"
+                            class="btn btn-warning btn-sm"
+                            onclick="abrirModalEditar({{ $modulo->id }})"
+                            title="Editar módulo">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
 
-<a href="{{ route('admin.videos.index', $modulo->id) }}"
-    class="btn btn-primary btn-sm">
-    🎬 Ver Videos
-</a>
+                        {{-- VIDEOS --}}
+                        <a href="{{ route('admin.videos.index', $modulo->id) }}"
+                        class="btn btn-primary btn-sm"
+                        title="Crear videos">
+                            <i class="bi bi-collection-play-fill"></i>
+                            Crear Videos
+                        </a>
+
                         {{-- ELIMINAR --}}
-                        <form action="{{ route('admin.modulos.destroy', $modulo->id) }}" method="POST">
+                        <form action="{{ route('admin.modulos.destroy', $modulo->id) }}"
+                            method="POST"
+                            style="display:inline;">
+
                             @csrf
                             @method('DELETE')
 
-                            <button class="btn btn-danger btn-sm"
-                                onclick="return confirm('¿Eliminar módulo?')">
-                                🗑
+                            <button
+                                type="submit"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('¿Eliminar módulo?')"
+                                title="Eliminar módulo">
+                                <i class="bi bi-trash3"></i>
                             </button>
                         </form>
 

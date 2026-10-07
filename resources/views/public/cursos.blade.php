@@ -133,7 +133,7 @@
                         <div class="detalle-derecha">
                             <h4>Lanzo por </h4>
                             <img src="{{ asset('img/FHB PNG.png') }}" alt="QR Facebook" class="qr-img">
-                            <a href="https://www.facebook.com/hilda.s.choque" 
+                            <a href="https://www.facebook.com/FundacionHechoBolivia/" 
    target="_blank" 
    rel="noopener noreferrer"
    class="btn-facebook">
